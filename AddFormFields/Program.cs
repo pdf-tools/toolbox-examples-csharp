@@ -57,7 +57,7 @@ namespace ToolboxAddFormFields
             try
             {
                 // Set and check license key. If the license key is not valid, an exception is thrown.
-                Sdk.Initialize("insert-license-key-here", null);
+                Sdk.Initialize("<-- insert license key -->", null);
 
                 // Get all the command line arguments
                 string inPath = args[0];

@@ -54,7 +54,7 @@ namespace ToolboxRotatePages
             try
             {
                 // Set and check license key. If the license key is not valid, an exception is thrown.
-                Sdk.Initialize("insert-license-key-here", null);
+                Sdk.Initialize("<-- insert license key -->", null);
 
                 int[] pageNumbers = new int[args.Length - 2];
                 for (int i = 0; i < args.Length - 2; i++)

@@ -61,7 +61,7 @@ namespace ToolboxReplaceText
             try
             {
                 // Set and check license key. If the license key is not valid, an exception is thrown.
-                Sdk.Initialize("insert-license-key-here", null);
+                Sdk.Initialize("<-- insert license key -->", null);
 
                 string inPath = args[0];
                 string outPath = args[1];
@@ -193,8 +193,26 @@ namespace ToolboxReplaceText
             string[] parts = fragment.Font.BaseFont.Split('-');
             string family = parts[0];
             string style = parts.Length > 1 ? parts[1] : null;
-            // Create a new font object
-            Font font = Font.CreateFromSystem(doc, family, style, true);
+            // Create a new font object, falling back to common system fonts if the
+            // original font is not installed
+            Font font = null;
+            foreach (string candidate in new[] { family, "Arial", "Helvetica" })
+            {
+                try
+                {
+                    font = Font.CreateFromSystem(doc, candidate, style, true);
+                    if (candidate != family)
+                        Console.WriteLine($"Fallback font '{candidate}' was selected, because default '{family}' font was not found on the machine.");
+                    break;
+                }
+                catch (NotFoundException)
+                {
+                    continue;
+                }
+            }
+            if (font == null)
+                throw new Exception($"Could not find font '{family}' or any fallback (Arial, Helvetica) on this system. " +
+                    $"Install the '{family}' font and try again.");
             // Create a text generator and set the original fragment's properties
             using (TextGenerator textGenerator = new TextGenerator(text, font, fragment.FontSize, null))
             {

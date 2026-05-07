@@ -56,7 +56,7 @@ namespace ToolboxAddBarcode
             try
             {
                 // Set and check license key. If the license key is not valid, an exception is thrown.
-                Sdk.Initialize("insert-license-key-here", null);
+                Sdk.Initialize("<-- insert license key -->", null);
 
                 string inPath = args[0];
                 string barcode = args[1];
