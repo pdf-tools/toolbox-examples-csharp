@@ -59,7 +59,7 @@ namespace ToolboxAddLineNumbers
 
             try
             {
-                Sdk.Initialize("insert-license-key-here", null);
+                Sdk.Initialize("<-- insert license key -->", null);
                 string inPath = args[0];
                 string outPath = args[1];
 

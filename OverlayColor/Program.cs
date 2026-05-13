@@ -71,7 +71,7 @@ namespace ToolboxOverlayColor
             try
             {
                 // Set and check license key. If the license key is not valid, an exception is thrown.
-                Sdk.Initialize("insert-license-key-here", null);
+                Sdk.Initialize("<-- insert license key -->", null);
 
                 double[] color = new double[] { 0.9 };
                 int i = 0;
