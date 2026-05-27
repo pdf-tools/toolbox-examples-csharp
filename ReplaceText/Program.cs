@@ -205,7 +205,7 @@ namespace ToolboxReplaceText
                         Console.WriteLine($"Fallback font '{candidate}' was selected, because default '{family}' font was not found on the machine.");
                     break;
                 }
-                catch (NotFoundException)
+                catch
                 {
                     continue;
                 }
