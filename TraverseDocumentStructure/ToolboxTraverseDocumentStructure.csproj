@@ -17,6 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PdfTools.Toolbox" Version="1.12.1" />
+    <PackageReference Include="PdfTools.Toolbox" Version="1.13.0" />
   </ItemGroup>
 </Project>
